@@ -1,0 +1,171 @@
+internal_db_tool：
+  地址：http://120.26.142.54/api/contacts/getAgentContacts
+  请求参数：
+  {
+  "agent_id": "string",
+  "company_type": [
+    "string"
+  ],
+  "products_keywords": [
+    "string"
+  ],
+  "countries": [
+    "string"
+  ],
+  "blacklinks": [
+    "string"
+  ],
+  "job_title": [
+    "string"
+  ],
+  "product_industry": [],
+  "expect_cnt": 10,
+  "limit": 10,
+  "offset": 0,
+  "source": [
+    "google"
+  ]
+}
+
+
+卖家信息：
+  "company_name" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
+  "company_website" varchar(255) COLLATE "pg_catalog"."default",
+  "company_pitch" text COLLATE "pg_catalog"."default",
+
+
+ICP字段：
+  "id" int8 NOT NULL DEFAULT nextval('campaign_id_seq'::regclass),
+"keywords" text COLLATE "pg_catalog"."default", #关键词列表
+  "countries" text COLLATE "pg_catalog"."default", #国家信息
+  "sectors" text COLLATE "pg_catalog"."default", #行业领域
+  "job_titles" text COLLATE "pg_catalog"."default", #职位名称
+  "email_blacklist" text COLLATE "pg_catalog"."default", #邮箱黑名单
+  "customer_sources" text COLLATE "pg_catalog"."default", #客户来源渠道
+  "company_size" varchar(100) COLLATE "pg_catalog"."default", #公司规模
+
+
+
+API返回示例：
+{
+  "agent_id": "agent_12345",
+  "query_id": "query_67890",
+  "task_id": null,
+  "total_count": 25,
+  "data_sufficient": true,
+  "contacts": [
+    {
+      "id": 1001,
+      "company_domain": "example.com",
+      "full_name": "張小明",
+      "first_name": "小明",
+      "last_name": "張",
+      "job_title": "技術總監",
+      "department": "技術部",
+      "seniority": "高級",
+      "work_email": "zhang.xiaoming@example.com",
+      "personal_email": "xiaoming.zhang@gmail.com",
+      "country": "台灣",
+      "country_code": "TW",
+      "location": "台北市",
+      "timezone": "Asia/Taipei",
+      "language": "zh-TW",
+      "linkedin": "https://linkedin.com/in/zhangxiaoming",
+      "summary": "擁有10年軟體開發經驗，專精於雲端架構設計",
+      "jobs": {
+        "current": {
+          "title": "技術總監",
+          "company": "Example Corp",
+          "duration": "3年"
+        },
+        "previous": [
+          {
+            "title": "資深工程師",
+            "company": "Tech Solutions",
+            "duration": "5年"
+          }
+        ]
+      },
+      "educations": {
+        "degree": "資訊工程碩士",
+        "university": "國立台灣大學",
+        "graduation_year": 2015
+      },
+      "created_time": "2024-01-15T10:30:00Z",
+      "updated_time": "2024-01-20T14:45:00Z"
+    },
+    {
+      "id": 1002,
+      "company_domain": "techstartup.com",
+      "full_name": "李美玲",
+      "first_name": "美玲",
+      "last_name": "李",
+      "job_title": "產品經理",
+      "department": "產品部",
+      "seniority": "中級",
+      "work_email": "meiling.li@techstartup.com",
+      "personal_email": null,
+      "country": "台灣",
+      "country_code": "TW",
+      "location": "新北市",
+      "timezone": "Asia/Taipei",
+      "language": "zh-TW",
+      "linkedin": "https://linkedin.com/in/meilingli",
+      "summary": "專注於用戶體驗設計和產品策略規劃",
+      "jobs": {
+        "current": {
+          "title": "產品經理",
+          "company": "TechStartup Inc",
+          "duration": "2年"
+        }
+      },
+      "educations": {
+        "degree": "工商管理學士",
+        "university": "輔仁大學",
+        "graduation_year": 2018
+      },
+      "created_time": "2024-01-16T09:15:00Z",
+      "updated_time": "2024-01-19T16:20:00Z"
+    },
+    {
+      "id": 1003,
+      "company_domain": "enterprise-solutions.com",
+      "full_name": "王建國",
+      "first_name": "建國",
+      "last_name": "王",
+      "job_title": "業務總監",
+      "department": "業務部",
+      "seniority": "高級",
+      "work_email": "jianguo.wang@enterprise-solutions.com",
+      "personal_email": "jianguo.wang@yahoo.com",
+      "country": "台灣",
+      "country_code": "TW",
+      "location": "台中市",
+      "timezone": "Asia/Taipei",
+      "language": "zh-TW",
+      "linkedin": "https://linkedin.com/in/jianguowang",
+      "summary": "企業級軟體銷售專家，年營收超過5000萬",
+      "jobs": {
+        "current": {
+          "title": "業務總監",
+          "company": "Enterprise Solutions",
+          "duration": "4年"
+        },
+        "previous": [
+          {
+            "title": "資深業務經理",
+            "company": "Software Corp",
+            "duration": "6年"
+          }
+        ]
+      },
+      "educations": {
+        "degree": "企業管理碩士",
+        "university": "國立政治大學",
+        "graduation_year": 2012
+      },
+      "created_time": "2024-01-14T11:45:00Z",
+      "updated_time": "2024-01-21T10:30:00Z"
+    }
+  ]
+}

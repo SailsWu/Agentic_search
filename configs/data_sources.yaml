@@ -1,0 +1,56 @@
+# 数据源配置文件
+# 每个数据源包含名称、类型、工具类名等信息
+# module_path: 工具类所在的模块路径
+data_sources:
+  clay:
+    name: "Clay"
+    type: "external_api"
+    tool_class: "ClaySearchTool"
+    module_path: "tools.clay_tool"
+    enabled: False
+    config:
+      api_key: "${CLAY_API_KEY}"
+      base_url: "https://api.clay.com/v1"
+      timeout: 30
+      rate_limit: 100  # 每小时请求限制
+    
+  linkedin:
+    name: "LinkedIn"
+    type: "external_api"
+    tool_class: "LinkedInTool"
+    module_path: "tools.linkedin_tool"
+    enabled: False
+    config:
+      api_key: "${LINKEDIN_API_KEY}"
+      base_url: "https://api.linkedin.com/v2"
+      timeout: 30
+      rate_limit: 50
+    
+  apollo:
+    name: "Apollo"
+    type: "external_api"
+    tool_class: "ApolloTool"
+    module_path: "tools.apollo_tool"
+    enabled: False
+    config:
+      api_key: "${APOLLO_API_KEY}"
+      base_url: "https://api.apollo.io/v1"
+      timeout: 30
+      rate_limit: 200
+    
+  internal_db:
+    name: "InternalDB"
+    type: "internal"
+    tool_class: "InternalDBTool"
+    module_path: "agents.LeadSearchAgent.tools.internal_db_tool"
+    enabled: True
+    config:
+      base_url: "http://120.26.142.54/api/contacts/getAgentContacts"
+      db_path: "data/internal_leads.db"
+      timeout: 10
+
+# 全局配置
+global:
+  max_concurrent: 5  # 最大并发数
+  default_timeout: 30
+  retry_attempts: 3 
